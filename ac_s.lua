@@ -45,13 +45,17 @@ violations = {}
 
 recentExplosions = {}
 
-
+AddEventHandler('anticheese:yoink', function()
+	--if(Users[source])then
+		--Users[source] = nil
+	--end
+end)
 
 RegisterServerEvent("anticheese:timer")
 AddEventHandler("anticheese:timer", function()
 	if Users[source] then
 		if (os.time() - Users[source]) < 15 and Components.Speedhack then -- prevent the player from doing a good old cheat engine speedhack
-			DropPlayer(source, "Speedhacking")
+			DropPlayer(source, "Speedhacking detected, file a ban appeal in AORP's Discord")
 		else
 			Users[source] = os.time()
 		end
